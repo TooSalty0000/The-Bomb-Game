@@ -8464,6 +8464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 814242255}
   - component: {fileID: 814242254}
+  - component: {fileID: 814242256}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -8499,6 +8500,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &814242256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814242253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58df794807074347b0e4e38c1b84b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modules:
+  - {fileID: 1987817751}
 --- !u!1001 &816375028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13827,7 +13842,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8128773, y: 1}
+    m_SensorSize: {x: 1.9807693, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -20828,6 +20843,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 398690115}
     m_Modifications:
+    - target: {fileID: 1169901122691503766, guid: 6794b8591664228458a4038e870af22a, type: 3}
+      propertyPath: colors.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1968314641811549545, guid: 6794b8591664228458a4038e870af22a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -20883,6 +20902,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1968314641811549545, guid: 6794b8591664228458a4038e870af22a, type: 3}
   m_PrefabInstance: {fileID: 1987817748}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1987817751 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1169901122691503766, guid: 6794b8591664228458a4038e870af22a, type: 3}
+  m_PrefabInstance: {fileID: 1987817748}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5d1f851e60f2c4b9cb09f69fccc3a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1994350009
 PrefabInstance:
   m_ObjectHideFlags: 0
