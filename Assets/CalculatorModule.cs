@@ -18,7 +18,7 @@ public class CalculatorModule : Module
 
     private void Start() {
         // 50% chance to get set the original digits from possbileProblems, 50% chance to get a random problem
-        if ((int)Random.Range(0, 2) == 0) {
+        if ((int)Random.Range(0, 8) == 0) {
             int index = Random.Range(0, possibleProblems.Count);
             originalDigits = possibleProblems[index];
         } else {
@@ -69,23 +69,23 @@ public class CalculatorModule : Module
     private void checkAnswer() {
         int[] oDigits = new int[] { (int)originalDigits.z, (int)originalDigits.y, (int)originalDigits.x };
         int eDigits = (enteredDigits[2] + (enteredDigits[1] * 10) + (enteredDigits[0] * 100));
-        if (oDigits.All(x => x % 2 == 0)) {
-            //ones * tens - hundreds
-            if (eDigits == oDigits[0] * oDigits[1] - oDigits[2]) {
-                solved = true;
-            } else {
-                solved = false;
-            }
-        } else if (oDigits[0] == oDigits[2]) { // first and last number is same
+        if (oDigits[0] == oDigits[2]) { // first and last number is same
             //ones * hundreds
             if (eDigits == oDigits[0] * oDigits[2]) {
                 solved = true;
             } else {
                 solved = false;
             }
-        } else if (oDigits[1] >= 5) { // tens is greater than 5
+        } else if (oDigits[1] >= 8) { // tens is greater than 5
             // flip the order
             if (eDigits == oDigits[2] + oDigits[1] * 10 + oDigits[0] * 100) {
+                solved = true;
+            } else {
+                solved = false;
+            }
+        } else if (oDigits.All(x => x % 2 == 0)) {
+            //ones * tens - hundreds
+            if (eDigits == oDigits[0] * oDigits[1] - oDigits[2]) {
                 solved = true;
             } else {
                 solved = false;

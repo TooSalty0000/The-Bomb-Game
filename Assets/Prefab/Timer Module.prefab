@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2084660479901054297}
   - component: {fileID: 7562372654880762424}
   m_Layer: 0
-  m_Name: Text (TMP) (1)
+  m_Name: First X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 1838368393734624992}
   - component: {fileID: 8176810427521946106}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -741,6 +741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1968314641811549545}
+  - component: {fileID: 8082943884515393260}
   m_Layer: 0
   m_Name: Timer Module
   m_TagString: Untagged
@@ -770,6 +771,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8082943884515393260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630865867741902287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0e7c9f08e5e824faa405ba5332281e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  solved: 0
+  timer: 5
+  timerText: {fileID: 8176810427521946106}
 --- !u!1 &8651708613941876939
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +798,7 @@ GameObject:
   - component: {fileID: 2002592148276205120}
   - component: {fileID: 8773135923868839170}
   m_Layer: 0
-  m_Name: Text (TMP) (2)
+  m_Name: Second X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

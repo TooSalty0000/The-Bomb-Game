@@ -13,11 +13,15 @@ public class ModuleManager : MonoBehaviour
         }
     }
     public List<Module> modules = new List<Module>();
+    public float timeLimit = 300;
+    [SerializeField]
+    public TimeModule timeModule;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        timeModule.timer = timeLimit;
     }
 
     // Update is called once per frame
