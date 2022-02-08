@@ -20,12 +20,6 @@ public class ColorModule : Module
     // Update is called once per frame
     void Update()
     {
-        if (solved) {
-            answerLight.material.color = Color.green;
-            enabled = false;
-            return;
-        }
-
         if (colors.Count == 4) {
             checkAnswer();
             colors = new List<colorTypes>();
@@ -45,34 +39,34 @@ public class ColorModule : Module
             if (modules.Any(x => x.problemDigit == 235)) {
                 // solved if the color sequence is red, green, yellow, blue
                 if (colors.SequenceEqual(new List<colorTypes>() { colorTypes.red, colorTypes.green, colorTypes.yellow, colorTypes.blue })) {
-                    solved = true;
+                    solved();
                 }
             } else if (modules.Any(x => x.problemDigit == 54)) {
                 // solved if the color sequence is green, yellow, blue, red
                 if (colors.SequenceEqual(new List<colorTypes>() { colorTypes.green, colorTypes.yellow, colorTypes.blue, colorTypes.red })) {
-                    solved = true;
+                    solved();
                 }
             } else if (modules.Any(x => x.problemDigit == 419)) {
-                solved = true;
+                solved();
             } else if (modules.Any(x => x.problemDigit == 303)) {
                 // solved if the color sequence is green, green, green, green
                 if (colors.SequenceEqual(new List<colorTypes>() { colorTypes.green, colorTypes.green, colorTypes.green, colorTypes.green })) {
-                    solved = true;
+                    solved();
                 }
             } else if (modules.Any(x => x.problemDigit == 303)) {
                 // solved if the color sequence is blue, blue, blue, blue
                 if (colors.SequenceEqual(new List<colorTypes>() { colorTypes.blue, colorTypes.blue, colorTypes.blue, colorTypes.blue })) {
-                    solved = true;
+                    solved();
                 }
             } else if (modules.Any(x => x.problemDigit == 102)) {
                 // solved if the color sequence is yellow, yellow, yellow, yellow
                 if (colors.SequenceEqual(new List<colorTypes>() { colorTypes.yellow, colorTypes.yellow, colorTypes.yellow, colorTypes.yellow })) {
-                    solved = true;
+                    solved();
                 }
             } else if (modules.Any(x => x.problemDigit == 120)) {
                 // solved if the color sequence is red, red, red, red
                 if (colors.SequenceEqual(new List<colorTypes>() { colorTypes.red, colorTypes.red, colorTypes.red, colorTypes.red })) {
-                    solved = true;
+                    solved();
                 }
             } 
         } 
