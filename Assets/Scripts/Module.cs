@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Module : MonoBehaviour
 {
-    public bool solved;
+    [SerializeField]
+    private Renderer Identifier;
+
+    public void solved() {
+        Identifier.material.color = Color.green;
+        enabled = false;
+    }
 
 }
