@@ -27,6 +27,11 @@ public class ColorModule : Module
 
     }
 
+    //blueprint for later
+    //method startPattern
+    //select random number then depending on number and problem digit then make color blink specific pattern of colors in intervals of 1 second per color.
+    //Alternative: press button to make simon says sequence play once.
+
     private void checkAnswer()
     {
         if (ModuleManager.instance.modules.Any(x => x.GetComponent<CalculatorModule>())) {
@@ -64,7 +69,7 @@ public class ColorModule : Module
                     solved();
                 }
             } 
-        } // work on chemical module right after
+        } 
     }
 
     public void enterColor(String colorName) {
