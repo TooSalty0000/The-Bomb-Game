@@ -10,6 +10,7 @@ public class WireModule : Module
     [SerializeField]
     private Renderer[] lights;
     private int[] values = new int[5];
+    private int cutCount = 0;
 
     [SerializeField]
     private List<ColorPallet> possibleColors = new List<ColorPallet>();
@@ -45,12 +46,9 @@ public class WireModule : Module
 
     // Update is called once per frame
     void Update() {
-        
-    }
-    
-    private void checkAnswer() {
-        
-
+        if (cutCount >= 5) {
+            solved();
+        }
     }
 
     public void tryCut(int index) {
@@ -61,6 +59,7 @@ public class WireModule : Module
         if (values[index] == values.Max()) {
             wires[index].enabled = false;
             values[index] = -1;
+            cutCount++;
         }
     }
 

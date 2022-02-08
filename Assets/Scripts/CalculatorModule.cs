@@ -34,14 +34,6 @@ public class CalculatorModule : Module
     // Update is called once per frame
     void Update()
     {
-        if (solved) {
-            displayProblem();
-            foreach (var text in digits) {
-                text.color = Color.green;
-            }
-            enabled = false;
-            return;
-        }
         // if enteredDigit is not null, display it in the correct digit text
         if (enteredDigits.Count >= 3) {
             checkAnswer();
@@ -72,51 +64,37 @@ public class CalculatorModule : Module
         if (oDigits[0] == oDigits[2]) { // first and last number is same
             //ones * hundreds
             if (eDigits == oDigits[0] * oDigits[2]) {
-                solved = true;
-            } else {
-                solved = false;
+                solved();
             }
         } else if (oDigits[1] >= 8) { // tens is greater than 5
             // flip the order
             if (eDigits == oDigits[2] + oDigits[1] * 10 + oDigits[0] * 100) {
-                solved = true;
-            } else {
-                solved = false;
+                solved();
             }
         } else if (oDigits.All(x => x % 2 == 0)) {
             //ones * tens - hundreds
             if (eDigits == oDigits[0] * oDigits[1] - oDigits[2]) {
-                solved = true;
-            } else {
-                solved = false;
+                solved();
             }
         } else if (oDigits.Count(x => x % 2 == 1) == 1) { // if one odd number
             //ones + tens + hundreds
             if (eDigits == oDigits[0] + oDigits[1] + oDigits[2]) {
-                solved = true;
-            } else {
-                solved = false;
+                solved();
             }
         } else if (oDigits.Count(x => x % 2 == 1) == 2) { // if two odd numbers
             //100 * hundreds
             if (eDigits == oDigits[0] * oDigits[2]) {
-                solved = true;
-            } else {
-                solved = false;
+                solved();
             }
         } else if (oDigits.All(x => x % 2 == 1)) { // if all odd numbers
             //ones + tens
             if (eDigits == 203) {
-                solved = true;
-            } else {
-                solved = false;
+                solved();
             }
             // all digits add up to 10
         } else if (oDigits.Sum() == 10) {
             if (eDigits == 100) {
-                solved = true;
-            } else {
-                solved = false;
+                solved();
             }
         }
     }
