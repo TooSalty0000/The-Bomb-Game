@@ -204,6 +204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1968314641811549545}
+  - component: {fileID: 8527055074530052219}
   m_Layer: 0
   m_Name: Big Button
   m_TagString: Untagged
@@ -229,6 +230,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8527055074530052219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630865867741902287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da2594503d052a4ba4fb2894bfd70ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  symbols:
+  - Star
+  - Square
+  - X
+  - None
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 1, g: 1, b: 0.3019608, a: 0}
+  - {r: 1, g: 1, b: 1, a: 0}
 --- !u!1 &5051265092428175006
 GameObject:
   m_ObjectHideFlags: 0
