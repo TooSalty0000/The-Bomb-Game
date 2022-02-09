@@ -2,22 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flashing_Lights : MonoBehaviour
+public class Flashing_Lights : Interactable
 {
-
-    
-    public List<int> Color_Order = new List<int>();
     [SerializeField]
-    private Color[] Colors = new Color[4];
-    // Start is called before the first frame update
-    void Start()
+    private ColorModule module;
+    private Renderer renderer;
+
+    private void Start() {
+        renderer = GetComponent<Renderer>();
+    }
+    public override void Interact()
     {
-    //  Random.Range(Color_Order , 0, 4);
+        StartCoroutine(showCode(module.code));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private IEnumerator showCode(Color[] code) {
+        for (int i = 0; i < code.Length; i++) {
+            renderer.material.color = code[i];
+            yield return new WaitForSeconds(0.3f);
+            renderer.material.color = Color.white;
+            yield return new WaitForSeconds(1f);
+        }
+        renderer.material.color = Color.white;
     }
+
 }

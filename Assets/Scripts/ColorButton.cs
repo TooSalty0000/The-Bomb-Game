@@ -8,10 +8,12 @@ public class ColorButton : Interactable
     private ColorModule module;
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private int colorId;
     public override void Interact()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Normal")) {
-            module.enterColor(gameObject.name);
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Normal") && module.enabled) {
+            module.enterColor(colorId);
             animator.SetTrigger(gameObject.name);
         }
         

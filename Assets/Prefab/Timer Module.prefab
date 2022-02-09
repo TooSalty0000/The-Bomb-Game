@@ -783,7 +783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0e7c9f08e5e824faa405ba5332281e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  solved: 0
+  Identifier: {fileID: 0}
   timer: 5
   timerText: {fileID: 8176810427521946106}
 --- !u!1 &8651708613941876939
