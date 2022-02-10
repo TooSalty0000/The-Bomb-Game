@@ -7,13 +7,17 @@ public class Flashing_Lights : Interactable
     [SerializeField]
     private ColorModule module;
     private Renderer renderer;
+    private bool showing = false;
 
     private void Start() {
         renderer = GetComponent<Renderer>();
     }
     public override void Interact()
     {
-        StartCoroutine(showCode(module.code));
+        if (!showing) {
+            showing = true;
+            StartCoroutine(showCode(module.code));
+        }
     }
 
     private IEnumerator showCode(Color[] code) {
@@ -24,6 +28,7 @@ public class Flashing_Lights : Interactable
             yield return new WaitForSeconds(1f);
         }
         renderer.material.color = Color.white;
+        showing = false;
     }
 
 }
