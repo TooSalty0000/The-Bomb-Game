@@ -15,7 +15,6 @@ public class CalculatorModule : Module
     private List<int> enteredDigits = new List<int>();
     [SerializeField]
     private List<Vector3> possibleProblems = new List<Vector3>();
-    private int answer = 0;
 
     private void Start() {
         // 50% chance to get set the original digits from possbileProblems, 50% chance to get a random problem
@@ -60,34 +59,43 @@ public class CalculatorModule : Module
     }
 
     private void checkAnswer() {
-        int eDigits = (enteredDigits[2] + (enteredDigits[1] * 10) + (enteredDigits[0] * 100));
-        if (answer == eDigits) {
-            solved();
-        }
-    }
-
-    private void setAnswer() {
         int[] oDigits = new int[] { (int)originalDigits.z, (int)originalDigits.y, (int)originalDigits.x };
+        int eDigits = (enteredDigits[2] + (enteredDigits[1] * 10) + (enteredDigits[0] * 100));
         if (oDigits[0] == oDigits[2]) { // first and last number is same
             //ones * hundreds
-            answer = oDigits[0] * oDigits[2];
+            if (eDigits == oDigits[0] * oDigits[2]) {
+                solved();
+            }
         } else if (oDigits[1] >= 8) { // tens is greater than 5
             // flip the order
-            answer = oDigits[2] + oDigits[1] * 10 + oDigits[0] * 100;
-        } else if (oDigits.Sum() == 10) { // all digits add up to 10
-            answer = 100;
+            if (eDigits == oDigits[2] + oDigits[1] * 10 + oDigits[0] * 100) {
+                solved();
+            }
         } else if (oDigits.All(x => x % 2 == 0)) {
             //ones * tens - hundreds
-            answer = oDigits[0] * oDigits[1] - oDigits[2];
+            if (eDigits == oDigits[0] * oDigits[1] - oDigits[2]) {
+                solved();
+            }
         } else if (oDigits.Count(x => x % 2 == 1) == 1) { // if one odd number
             //ones + tens + hundreds
-            answer = oDigits[0] + oDigits[1] + oDigits[2];
+            if (eDigits == oDigits[0] + oDigits[1] + oDigits[2]) {
+                solved();
+            }
         } else if (oDigits.Count(x => x % 2 == 1) == 2) { // if two odd numbers
             //100 * hundreds
-            answer = oDigits[0] * oDigits[2];
+            if (eDigits == oDigits[0] * oDigits[2]) {
+                solved();
+            }
         } else if (oDigits.All(x => x % 2 == 1)) { // if all odd numbers
             //ones + tens
-            answer = 203;
+            if (eDigits == 203) {
+                solved();
+            }
+            // all digits add up to 10
+        } else if (oDigits.Sum() == 10) {
+            if (eDigits == 100) {
+                solved();
+            }
         }
     }
 

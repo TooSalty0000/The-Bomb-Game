@@ -16,14 +16,19 @@ public class Interactable : MonoBehaviour
     public virtual void Interact() {
         Debug.Log("Interacting with " + gameObject.name);
 
+        if (Input.GetMouseButtonDown(0))
+            startTime = Time.time;
+
+        if (Input.GetMouseButtonUp(0))
+            endTime = Time.time;
         
+        if (endTime - startTime > 0.5) {
+            startTime = 0;
+            endTime = 0;
+        }
     }
 
     public virtual void InteractHold() {
-        Debug.Log("Holding " + gameObject.name);
-    }
 
-    public virtual void InteractEnd() {
-        Debug.Log("Ending interaction with " + gameObject.name);
     }
 }
