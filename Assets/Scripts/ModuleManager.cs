@@ -5,6 +5,15 @@ using UnityEngine;
 public class ModuleManager : MonoBehaviour
 {
     public static ModuleManager instance;
+
+    public GameObject[] destroyThese;
+
+    [SerializeField]
+    private ParticleSystem explosionPrefab;
+    public bool hasExploded = false;
+
+    
+
     private void Awake() {
         if (instance == null) {
             instance = this;
@@ -22,11 +31,25 @@ public class ModuleManager : MonoBehaviour
     void Start()
     {
         timeModule.timer = timeLimit;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(hasExploded == true){
+            
+            Time.timeScale = 0;
+            foreach(GameObject g in destroyThese){
+                Destroy(g);
+            }
+             ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
+             ps.Play();
+          
+             
+
+             //return to main menu
+        }
     }
 }
