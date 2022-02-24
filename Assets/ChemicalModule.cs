@@ -7,12 +7,16 @@ public class ChemicalModule : Module
 {
     [SerializeField]
     private Renderer chemicalRenderer;
+
     [SerializeField]
     private TextMeshPro chemicalText;
+
     [SerializeField]
     private Color[] possibleChemicalColors;
+
     [SerializeField]
     private string[] possibleChemicalNames;
+    
     private int colorIndex = -1;
     private int nameIndex = -1;
     private int targetPressCount = 0;
@@ -28,8 +32,7 @@ public class ChemicalModule : Module
     };
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         setAnswer();
     }
 

@@ -12,8 +12,8 @@ public class Flashing_Lights : Interactable
     private void Start() {
         renderer = GetComponent<Renderer>();
     }
-    public override void Interact()
-    {
+    
+    public override void Interact() {
         if (!showing) {
             showing = true;
             StartCoroutine(showCode(module.code));

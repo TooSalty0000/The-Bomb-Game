@@ -11,9 +11,8 @@ public class ChemicalSubmit : Interactable
     private void Start() {
         animator = GetComponent<Animator>();
     }
-    // Update is called once per frame
-    public override void Interact()
-    {
+    
+    public override void Interact() {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("SubmitIdle")) {
             module.submit();
             animator.ResetTrigger("Pressed");

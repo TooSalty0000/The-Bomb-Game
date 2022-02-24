@@ -12,19 +12,16 @@ public class BigButton : Interactable
     private void Start() {
         animator = GetComponent<Animator>();
     }
-    public override void Interact()
-    {
+    public override void Interact() {
         animator.SetBool("Pressed", true);
         holdTime = 0f;
     }
 
-    public override void InteractHold()
-    {
+    public override void InteractHold() {
         holdTime += Time.deltaTime;
     }
 
-    public override void InteractEnd()
-    {
+    public override void InteractEnd() {
         animator.SetBool("Pressed", false);
         module.checkAnswer();
     }
