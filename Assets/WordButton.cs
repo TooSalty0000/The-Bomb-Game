@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChemicalButton : Interactable
+public class WordButton : Interactable
 {
     [SerializeField]
-    private ChemicalModule module;
+    private WordsModule module;
     private Animator animator;
     private void Start() {
-        animator = GetComponent<Animator>();
+        animator = transform.parent.GetComponent<Animator>();
     }
     public override void Interact() {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) {
-            module.press();
-            animator.ResetTrigger("Pressed");
-            animator.SetTrigger("Pressed");
+            animator.SetTrigger(gameObject.name);
+            module.pressed(gameObject.name);
         }
     }
 }

@@ -14,12 +14,9 @@ public class BigButtonModule : Module
     private GameObject button;
     int colorId = 0;
     int symbolId = 0;
-    
-    
 
 
-    void Start()
-    {
+    void Start() {
         setButton();
 
     }
@@ -83,8 +80,7 @@ public class BigButtonModule : Module
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         
     }
 }
