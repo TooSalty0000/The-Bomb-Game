@@ -8,10 +8,20 @@ public class TimeModule : Module
     public float timer; 
     public TextMeshPro timerText;
     private float speedmultiplyer = 1;
+
+    private int xNumber = 0;
+
+    public GameObject[] x;
     
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < x.Length; i++)
+        {
+            x[i].SetActive(false);
+        }
+
+
         
     }
 
@@ -25,6 +35,27 @@ public class TimeModule : Module
             // Reload scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
 
+    public void addSpeedMultiplyer(float speedmultiplyer){
+        this.speedmultiplyer += speedmultiplyer;
+         
+         //play fail sound
+
+        if(xNumber < 2){
+            
+          x[xNumber].SetActive(true);
+
+           xNumber++;
+          
+        }
+        else 
+        {
+            ModuleManager.instance.hasExploded = true;
+           
+        }
+
+       
+        
     }
 }

@@ -14,4 +14,8 @@ public class Module : MonoBehaviour
         enabled = false;
     }
 
+    public void fail () {
+        ModuleManager.instance.timeModule.addSpeedMultiplyer(0.5f);
+    }
+
 }

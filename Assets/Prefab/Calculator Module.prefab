@@ -1251,6 +1251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Identifier: {fileID: 217271319805642409}
+  isSolved: 0
   animator: {fileID: 1475800029702296960}
   digits:
   - {fileID: 779906169981467775}

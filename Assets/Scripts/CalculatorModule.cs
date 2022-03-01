@@ -64,6 +64,10 @@ public class CalculatorModule : Module
         if (answer == eDigits) {
             solved();
         }
+        else 
+    {
+            fail();
+        }
     }
 
     private void setAnswer() {
