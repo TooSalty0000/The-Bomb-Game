@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class ModuleManager : MonoBehaviour
 {
     public static ModuleManager instance;
@@ -13,8 +13,11 @@ public class ModuleManager : MonoBehaviour
     public bool hasExploded = false;
 
     public int modulesSolved = 0;
-    
 
+    public TextMeshProUGUI winText; 
+    
+[SerializeField]
+    private GameObject VirtualCamera;
     private void Awake() {
         if (instance == null) {
             instance = this;
@@ -24,15 +27,22 @@ public class ModuleManager : MonoBehaviour
     }
     public List<Module> modules = new List<Module>();
     public float timeLimit = 180;
-    [SerializeField]
+   
     public TimeModule timeModule;
 
+    public GameObject MenuCamera;
+
+    public bool YouWin = false;
 
     // Start is called before the first frame update
     void Start()
     {
+     winText.text = "";
+
         timeModule.timer = timeLimit;
 
+        // make sure that MenuCamera starts as inactive
+        MenuCamera.SetActive(false);
         
     }
 
@@ -41,9 +51,11 @@ public class ModuleManager : MonoBehaviour
     {   
 
 
-        if(modulesSolved >= 5){
+        if(modulesSolved >= 5 || YouWin == true){
 
-            Debug.Log("You Win!");
+           MenuCamera.gameObject.SetActive(true);
+
+           winText.text = "You Defused The Bomb!";
         }
 
         if(hasExploded == true){
