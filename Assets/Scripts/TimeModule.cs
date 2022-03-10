@@ -33,7 +33,7 @@ public class TimeModule : Module
         timerText.text = Mathf.Floor(timer / 60).ToString("00") + ":" + Mathf.Floor(timer % 60).ToString("00");
         if(timer <= 0){
             // Reload scene
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+           ModuleManager.instance.hasExploded = true;
         }
     }
 

@@ -55,6 +55,8 @@ public class ChemicalModule : Module
     public void submit() {
         if (pressCount == targetPressCount) {
             solved();
+        } else {
+            fail();
         }
     }
 }

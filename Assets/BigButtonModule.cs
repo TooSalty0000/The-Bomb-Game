@@ -77,6 +77,10 @@ public class BigButtonModule : Module
                 }
             }
         }
+
+        if (!isSolved) {
+            fail();
+        }
     }
 
     // Update is called once per frame

@@ -27,6 +27,7 @@ public class CalculatorModule : Module
             originalDigits.y = (int)Random.Range(0, 10);
             originalDigits.z = (int)Random.Range(0, 10);
         }
+        setAnswer();
         displayProblem();
         // convert int array into a single number, index 0 being the one's digit
         problemDigit = (int)(originalDigits.z + (originalDigits.y * 10) + (originalDigits.x * 100));
@@ -65,7 +66,7 @@ public class CalculatorModule : Module
             solved();
         }
         else 
-    {
+        {
             fail();
         }
     }

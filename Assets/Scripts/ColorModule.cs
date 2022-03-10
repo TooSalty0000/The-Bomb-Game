@@ -15,6 +15,8 @@ public class ColorModule : Module
     private Color[] answer = new Color[4];
     [SerializeField]
     private Color[] enteredCode = new Color[4];
+    [SerializeField]
+    private MeshRenderer[] answerLights;
     private int index = 0;
 
 
@@ -28,9 +30,11 @@ public class ColorModule : Module
     }
 
     // Update is called once per frame
-    void Update()
+    async void Update()
     {
-
+        for (int i = 0; i < 4; i++) {
+            answerLights[i].material.color = enteredCode[i];
+        }
     }
 
     //blueprint for later
@@ -99,6 +103,7 @@ public class ColorModule : Module
             solved();
             return true;
         }
+        fail();
         return false;
     }
 

@@ -12,6 +12,10 @@ public class Module : MonoBehaviour
         Identifier.material.color = Color.green;
         isSolved = true;
         enabled = false;
+
+        ModuleManager.instance.modulesSolved++;
+
+        
     }
 
     public void fail () {

@@ -866,6 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Identifier: {fileID: 6260379619515621308}
+  isSolved: 0
   answerLight: {fileID: 8591192712365775312}
   Colors:
   - {r: 1, g: 0, b: 0, a: 1}
@@ -877,6 +878,11 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
+  answerLights:
+  - {fileID: 431363375}
+  - {fileID: 1620297683}
+  - {fileID: 1062326764}
+  - {fileID: 1654566225}
 --- !u!95 &2078768885133327257
 Animator:
   serializedVersion: 4

@@ -12,6 +12,7 @@ public class ModuleManager : MonoBehaviour
     private ParticleSystem explosionPrefab;
     public bool hasExploded = false;
 
+    public int modulesSolved = 0;
     
 
     private void Awake() {
@@ -37,19 +38,33 @@ public class ModuleManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+
+
+        if(modulesSolved >= 5){
+
+            Debug.Log("You Win!");
+        }
+
         if(hasExploded == true){
             
-            Time.timeScale = 0;
+            
             foreach(GameObject g in destroyThese){
                 Destroy(g);
             }
              ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
              ps.Play();
-          
+            StartCoroutine(WaitForExplosionStop());
              
 
              //return to main menu
         }
+    }
+
+    IEnumerator WaitForExplosionStop(){
+        yield return new WaitForSeconds(1);
+         ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
+             ps.Stop();
+             hasExploded = false;
     }
 }

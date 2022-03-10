@@ -53,13 +53,12 @@ public class WireModule : Module
 
     public void tryCut(int index) {
         // if the value at index in values is the maximum value, then we disable the wire renderer
-        Debug.Log("Trying to cut wire " + index);
-        Debug.Log("Value at index " + index + " is " + values[index]);
-        Debug.Log("Max value is " + values.Max());
         if (values[index] == values.Max()) {
             wires[index].enabled = false;
             values[index] = -1;
             cutCount++;
+        } else {
+            fail();
         }
     }
 
