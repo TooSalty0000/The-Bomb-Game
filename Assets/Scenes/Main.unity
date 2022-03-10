@@ -7249,6 +7249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 692423967}
+  mouseParticle: {fileID: 5770549835601520278, guid: 70b39a49322aef44b82b40922bd00516, type: 3}
 --- !u!4 &814242255
 Transform:
   m_ObjectHideFlags: 0
@@ -11451,7 +11452,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9474747, y: 1}
+    m_SensorSize: {x: 2.1315281, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -17484,7 +17485,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9474747, y: 1}
+    m_SensorSize: {x: 2.1315281, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

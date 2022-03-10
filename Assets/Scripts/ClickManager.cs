@@ -10,6 +10,8 @@ public class ClickManager : MonoBehaviour
     private Interactable currentInteractable;
 
     private bool isPressing = false;
+    [SerializeField]
+    private GameObject mouseParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +21,12 @@ public class ClickManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hitx)) {
+            Instantiate(mouseParticle, hitx.point, Quaternion.identity);
+        }
         if (Input.GetMouseButton(0)) {
             if (!isPressing) {
-                Ray ray = camera.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out RaycastHit hit)) {
                     Interactable interactable = hit.collider.GetComponent<Interactable>();
                     if (interactable != null) {
