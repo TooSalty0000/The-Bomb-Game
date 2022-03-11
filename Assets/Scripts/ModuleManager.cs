@@ -26,6 +26,8 @@ public class ModuleManager : MonoBehaviour
         }
     }
     public List<Module> modules = new List<Module>();
+    [SerializeField]
+    private List<Module> possibleModules = new List<Module>();
     public float timeLimit = 180;
    
     public TimeModule timeModule;

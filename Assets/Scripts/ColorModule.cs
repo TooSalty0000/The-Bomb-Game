@@ -30,12 +30,6 @@ public class ColorModule : Module
     }
 
     // Update is called once per frame
-    async void Update()
-    {
-        for (int i = 0; i < 4; i++) {
-            answerLights[i].material.color = enteredCode[i];
-        }
-    }
 
     //blueprint for later
     //method startPattern
@@ -116,6 +110,9 @@ public class ColorModule : Module
         //     Debug.Log("Answer: " + answer[i]);
         //     Debug.Log(enteredCode[i] == answer[i]);
         // }
+        for (int i = 0; i < 4; i++) {
+            answerLights[i].material.color = enteredCode[i];
+        }
         index++;
         if (index >= 4) {
             if (!checkAnswer()) {

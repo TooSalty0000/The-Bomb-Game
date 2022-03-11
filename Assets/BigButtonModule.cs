@@ -22,7 +22,7 @@ public class BigButtonModule : Module
     }
 
     private void setButton() {
-        int symbolId = Random.Range(0, symbols.Length);
+        symbolId = Random.Range(0, symbols.Length);
         button.GetComponent<Renderer>().material.mainTexture = symbols[symbolId];
         colorId = Random.Range(0, colors.Length);
         button.GetComponent<Renderer>().material.color = colors[colorId];
@@ -54,7 +54,7 @@ public class BigButtonModule : Module
                     solved();
                 }
             } else if (colorId == 2) {
-                if (ModuleManager.instance.modules.Count(x => x.isSolved) >= 1) {
+                if (ModuleManager.instance.modules.Count(x => x.isSolved) == 1) {
                     solved();
                 }
             }

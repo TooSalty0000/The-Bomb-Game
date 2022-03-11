@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BigButton : Interactable
 {
@@ -8,9 +9,14 @@ public class BigButton : Interactable
     private BigButtonModule module;
     private Animator animator;
     public float holdTime = 0f;
+    public TextMeshPro text;
 
     private void Start() {
         animator = GetComponent<Animator>();
+    }
+
+    private void Update() {
+        text.text = holdTime.ToString("0");
     }
     public override void Interact() {
         animator.SetBool("Pressed", true);
@@ -24,5 +30,6 @@ public class BigButton : Interactable
     public override void InteractEnd() {
         animator.SetBool("Pressed", false);
         module.checkAnswer();
+        holdTime = 0f;
     }
 }
