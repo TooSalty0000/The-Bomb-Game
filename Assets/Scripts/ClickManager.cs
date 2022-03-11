@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClickManager : MonoBehaviour
@@ -12,20 +10,29 @@ public class ClickManager : MonoBehaviour
     private bool isPressing = false;
     [SerializeField]
     private GameObject mouseParticle;
+    [SerializeField]
+    private bool useMouse = false;
+    private HandMotionDetection handMotion;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        handMotion = GetComponent<HandMotionDetection>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        Ray ray;
+        if (useMouse) {
+            ray = camera.ScreenPointToRay(Input.mousePosition);
+        } else {    
+            ray = camera.ScreenPointToRay(handMotion.handPosition);
+        }
         if (Physics.Raycast(ray, out RaycastHit hitx)) {
             Instantiate(mouseParticle, hitx.point, Quaternion.identity);
         }
-        if (Input.GetMouseButton(0)) {
+        if ((!useMouse && handMotion.pressed) || (useMouse && Input.GetMouseButton(0))) {
             if (!isPressing) {
                 if (Physics.Raycast(ray, out RaycastHit hit)) {
                     Interactable interactable = hit.collider.GetComponent<Interactable>();

@@ -4484,6 +4484,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1968314641811549545, guid: 45b4de6bbd64f1447a6f06882aca1297, type: 3}
   m_PrefabInstance: {fileID: 552098094}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &552098096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4016352142859001407, guid: 45b4de6bbd64f1447a6f06882aca1297, type: 3}
+  m_PrefabInstance: {fileID: 552098094}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3153944c64acb4e806cd49736b6c76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &555525302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6101,6 +6112,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1968314641811549545, guid: 2091ffca22b2f9c49a651ca0fb086e06, type: 3}
   m_PrefabInstance: {fileID: 701577897}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &701577899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2867869718077077601, guid: 2091ffca22b2f9c49a651ca0fb086e06, type: 3}
+  m_PrefabInstance: {fileID: 701577897}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cf5434d0fc50747b0c3a15842b9723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &706803449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013316604322, guid: f5c94d7d7f024eb43b7dd5258c0608d0, type: 3}
@@ -7229,6 +7251,7 @@ GameObject:
   - component: {fileID: 814242255}
   - component: {fileID: 814242254}
   - component: {fileID: 814242256}
+  - component: {fileID: 814242257}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -7250,6 +7273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 692423967}
   mouseParticle: {fileID: 5770549835601520278, guid: 70b39a49322aef44b82b40922bd00516, type: 3}
+  useMouse: 1
 --- !u!4 &814242255
 Transform:
   m_ObjectHideFlags: 0
@@ -7293,9 +7317,28 @@ MonoBehaviour:
   hasExploded: 0
   modulesSolved: 0
   modules:
+  - {fileID: 1311234726}
+  - {fileID: 1627855149}
+  - {fileID: 552098096}
+  - {fileID: 701577899}
   - {fileID: 1987817751}
+  possibleModules: []
   timeLimit: 300
   timeModule: {fileID: 661315179}
+--- !u!114 &814242257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814242253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e73d8fe0e65b8d42a842bbe13dd0730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressed: 0
+  handPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &816375028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11196,6 +11239,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000013974182346, guid: a4ea7ad660a6e4241aff4002d350fe80, type: 3}
   m_PrefabInstance: {fileID: 1310699868}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1311234726 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4578301291726135209, guid: 61c40ddc986ab484c9c0e1f0049a3c07, type: 3}
+  m_PrefabInstance: {fileID: 1290522335}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66047c37e906d5f40909b6b99d9dae08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1332947247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13689,6 +13743,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1968314641811549545, guid: a82315f480896214ca7a13bbe4ad1632, type: 3}
   m_PrefabInstance: {fileID: 1721076672}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1627855149 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8527055074530052219, guid: a82315f480896214ca7a13bbe4ad1632, type: 3}
+  m_PrefabInstance: {fileID: 1721076672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da2594503d052a4ba4fb2894bfd70ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1634648797
 PrefabInstance:
   m_ObjectHideFlags: 0
