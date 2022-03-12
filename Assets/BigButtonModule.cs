@@ -11,7 +11,9 @@ public class BigButtonModule : Module
     [SerializeField]
     private Color[] colors;
     [SerializeField]
-    private GameObject button;
+    private BigButton button;
+    [SerializeField]
+    private MeshRenderer buttonRenderer;
     int colorId = 0;
     int symbolId = 0;
 
@@ -23,9 +25,9 @@ public class BigButtonModule : Module
 
     private void setButton() {
         symbolId = Random.Range(0, symbols.Length);
-        button.GetComponent<Renderer>().material.mainTexture = symbols[symbolId];
+        buttonRenderer.material.mainTexture = symbols[symbolId];
         colorId = Random.Range(0, colors.Length);
-        button.GetComponent<Renderer>().material.color = colors[colorId];
+        buttonRenderer.material.color = colors[colorId];
     }
 
     public void checkAnswer() {
@@ -46,7 +48,7 @@ public class BigButtonModule : Module
             }
         } else if (symbolId == 1) {
             if (colorId == 0) {
-                if (button.GetComponent<BigButton>().holdTime <= 1) {
+                if (button.holdTime <= 1) {
                     solved();
                 }
             } else if (colorId == 1) {
@@ -59,20 +61,20 @@ public class BigButtonModule : Module
                 }
             }
         } else if (symbolId == 2) {
-            if (button.GetComponent<BigButton>().holdTime >= 10) {
+            if (button.holdTime >= 10) {
                 solved();
             }
         } else if (symbolId == 3) {
             if (colorId == 0) {
-                if (button.GetComponent<BigButton>().holdTime <= 1) {
+                if (button.holdTime <= 1) {
                     solved();
                 }
             } else if (colorId == 1) {
-                if (button.GetComponent<BigButton>().holdTime >= 3) {
+                if (button.holdTime >= 3) {
                     solved();
                 }
             } else if (colorId == 2) {
-                if (button.GetComponent<BigButton>().holdTime >= 5) {
+                if (button.holdTime >= 5) {
                     solved();
                 }
             }

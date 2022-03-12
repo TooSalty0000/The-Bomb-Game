@@ -7171,6 +7171,7 @@ GameObject:
   - component: {fileID: 814242255}
   - component: {fileID: 814242254}
   - component: {fileID: 814242256}
+  - component: {fileID: 814242257}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -7237,19 +7238,15 @@ MonoBehaviour:
   modulesSolved: 0
   winText: {fileID: 1471672057}
   VirtualCamera: {fileID: 0}
-  modules:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  modules: []
   possibleModules:
   - {fileID: 8527055074530052219, guid: a82315f480896214ca7a13bbe4ad1632, type: 3}
   - {fileID: 4578301291726135209, guid: 61c40ddc986ab484c9c0e1f0049a3c07, type: 3}
   - {fileID: 4016352142859001407, guid: 45b4de6bbd64f1447a6f06882aca1297, type: 3}
   - {fileID: 1169901122691503766, guid: 6794b8591664228458a4038e870af22a, type: 3}
   - {fileID: 2867869718077077601, guid: 2091ffca22b2f9c49a651ca0fb086e06, type: 3}
-  - {fileID: 7077913984668819699, guid: 4f678ef874181c54d9b0fbf5a9322487, type: 3}
+  - {fileID: 8051619785765687484, guid: 9dcc7e496722ac045ba4f67871df100e, type: 3}
+  - {fileID: 3651419676218754706, guid: 893f0a91cba2692438bba34fa34f0efc, type: 3}
   modualSpawners:
   - {fileID: 1196628555}
   - {fileID: 1118456011}
@@ -7260,6 +7257,20 @@ MonoBehaviour:
   timeModule: {fileID: 661315179}
   MenuCamera: {fileID: 2046218408}
   YouWin: 0
+--- !u!114 &814242257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814242253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e73d8fe0e65b8d42a842bbe13dd0730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressed: 0
+  handPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &816375028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11452,7 +11463,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9474747, y: 1}
+    m_SensorSize: {x: 1.9684014, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -17500,7 +17511,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9474747, y: 1}
+    m_SensorSize: {x: 1.9684014, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

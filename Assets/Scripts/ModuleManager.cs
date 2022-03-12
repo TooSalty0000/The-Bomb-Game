@@ -16,7 +16,7 @@ public class ModuleManager : MonoBehaviour
 
     public TextMeshProUGUI winText; 
     
-[SerializeField]
+    [SerializeField]
     private GameObject VirtualCamera;
     private void Awake() {
         if (instance == null) {
