@@ -27,6 +27,10 @@ public class ColorModule : Module
         answer = new Color[4];
         setAnswer();
         index = 0;
+        foreach (var light in answerLights)
+        {
+            light.material.color = Color.black;
+        }
     }
 
     // Update is called once per frame

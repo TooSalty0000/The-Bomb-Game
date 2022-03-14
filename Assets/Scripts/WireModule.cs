@@ -38,6 +38,7 @@ public class WireModule : Module
         lightColors = lightColors.OrderBy(x => Random.value).ToArray();
         for (int i = 0; i < 5; i++) {
             lights[i].material.color = pallet.possibleColors[lightColors[i]].color;
+            lights[i].material.SetColor("_EmissionColor", pallet.possibleColors[lightColors[i]].color);
             values[i] += pallet.possibleColors[lightColors[i]].value;
         }
 

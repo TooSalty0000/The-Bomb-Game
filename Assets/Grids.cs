@@ -14,6 +14,18 @@ public class Grids : Interactable
     private Texture2D XTexture;
     [SerializeField]
     private Texture2D OTexture;
+    private MeshRenderer renderer;
+
+    private void Start() {
+        renderer = GetComponent<MeshRenderer>();
+        renderer.material.EnableKeyword("_EMISSION");
+    }
+
+    private void Update() {
+        if (renderer.material.GetColor("_EmissionColor") != Color.black) {
+            renderer.material.SetColor("_EmissionColor", Color.Lerp(renderer.material.GetColor("_EmissionColor"), Color.black, Time.deltaTime * 2));
+        }
+    }
 
     public void showTextures() {
         if (X) {
@@ -27,6 +39,7 @@ public class Grids : Interactable
             activated = true;
             GetComponent<MeshRenderer>().material.mainTexture = OTexture;
             module.checkAnswer();
+            renderer.material.SetColor("_EmissionColor", Color.white);
         } else {
             module.fail();
         }

@@ -10,6 +10,7 @@ public class Module : MonoBehaviour
 
     public void solved() {
         Identifier.material.color = Color.green;
+        Identifier.material.SetColor("_EmissionColor", Color.green);
         isSolved = true;
         enabled = false;
 
