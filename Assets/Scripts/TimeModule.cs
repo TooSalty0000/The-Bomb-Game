@@ -14,6 +14,8 @@ public class TimeModule : Module
     public GameObject[] x;
     public bool activited = false;
     
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +24,8 @@ public class TimeModule : Module
             x[i].GetComponent<TextMeshPro>().color = Color.white;
         }
 
-
+        audioSource = GetComponent<AudioSource>();
+     
         
     }
 
@@ -60,5 +63,19 @@ public class TimeModule : Module
 
        
         
+    }
+    
+    public void startTimer() {
+        
+        StartCoroutine(WaitForSound());
+        activited = true;
+    }
+
+    private IEnumerator WaitForSound()
+    {
+        while (timer > 0) {
+            yield return new WaitForSeconds(1 / speedmultiplyer);
+            audioSource.Play();
+        }
     }
 }

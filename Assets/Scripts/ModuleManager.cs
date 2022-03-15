@@ -41,10 +41,12 @@ public class ModuleManager : MonoBehaviour
 
     public bool YouWin = false;
 
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-     
+      audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -72,6 +74,7 @@ public class ModuleManager : MonoBehaviour
         }
         ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
         ps.Play();
+        audioSource.Play();
         doorAnimator.SetTrigger("Close");
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(0);
@@ -95,6 +98,6 @@ public class ModuleManager : MonoBehaviour
             newModule.transform.parent = modualSpawners[i].transform;
             modules.Add(newModule);
         }
-        timeModule.activited = true;
+        timeModule.startTimer();
     }
 }
