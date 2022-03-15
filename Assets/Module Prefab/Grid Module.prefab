@@ -1865,7 +1865,7 @@ MonoBehaviour:
     solution:
       rows:
       - row: 0100000000
-      - row: 0100000000
+      - row: 0001000000
       - row: 0000000001
       - row: 0000000001
       - row: 0100000000

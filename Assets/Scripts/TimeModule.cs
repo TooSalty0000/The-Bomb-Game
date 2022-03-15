@@ -12,13 +12,14 @@ public class TimeModule : Module
     private int xNumber = 0;
 
     public GameObject[] x;
+    public bool activited = false;
     
     // Start is called before the first frame update
     void Start()
     {
         for (int i = 0; i < x.Length; i++)
         {
-            x[i].SetActive(false);
+            x[i].GetComponent<TextMeshPro>().color = Color.white;
         }
 
 
@@ -28,7 +29,9 @@ public class TimeModule : Module
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime * speedmultiplyer;
+        if (activited) {
+            timer -= Time.deltaTime * speedmultiplyer;
+        }
         //display time as minutes:seconds and store it in timerText
         timerText.text = Mathf.Floor(timer / 60).ToString("00") + ":" + Mathf.Floor(timer % 60).ToString("00");
         if(timer <= 0){
@@ -44,7 +47,7 @@ public class TimeModule : Module
 
         if(xNumber < 2){
             
-          x[xNumber].SetActive(true);
+          x[xNumber].GetComponent<TextMeshPro>().color = Color.red;
 
            xNumber++;
           

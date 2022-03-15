@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class ModuleManager : MonoBehaviour
 {
     public static ModuleManager instance;
@@ -17,7 +18,9 @@ public class ModuleManager : MonoBehaviour
     public TextMeshProUGUI winText; 
     
     [SerializeField]
-    private GameObject VirtualCamera;
+    private GameObject Menu;
+    [SerializeField]
+    private Animator doorAnimator;
     private void Awake() {
         if (instance == null) {
             instance = this;
@@ -41,24 +44,7 @@ public class ModuleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     winText.text = "";
-
-        timeModule.timer = timeLimit;
-
-        // make sure that MenuCamera starts as inactive
-        MenuCamera.SetActive(false);
-
-        
-        for(int i = 0; i < 5; i++){
-            Module newModule = Instantiate(possibleModules[Random.Range(0, possibleModules.Count)]);
-            newModule.transform.position = modualSpawners[i].transform.position;
-             newModule.transform.localScale = modualSpawners[i].transform.localScale;
-             newModule.transform.rotation = modualSpawners[i].transform.rotation;
-             newModule.transform.parent = modualSpawners[i].transform;
-            modules.Add(newModule);
-           
-
-        }
+     
     }
 
     // Update is called once per frame
@@ -72,24 +58,43 @@ public class ModuleManager : MonoBehaviour
         }
 
         if(hasExploded == true){
-            
-            
-            foreach(GameObject g in destroyThese){
-                Destroy(g);
-            }
-             ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
-             ps.Play();
-            StartCoroutine(WaitForExplosionStop());
-             
-
-             //return to main menu
+            StartCoroutine(Explode());
+            hasExploded = false;
+            //return to main menu
         }
     }
 
-    IEnumerator WaitForExplosionStop(){
-        yield return new WaitForSeconds(1);
-         ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
-             ps.Stop();
-             hasExploded = false;
+    IEnumerator Explode(){
+        MenuCamera.SetActive(true);
+        yield return new WaitForSeconds(2);
+        foreach(GameObject g in destroyThese){
+            Destroy(g);
+        }
+        ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
+        ps.Play();
+        doorAnimator.SetTrigger("Close");
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
+    }
+
+    public void startGame() {
+        winText.text = "";
+
+        timeModule.timer = timeLimit;
+        Menu.SetActive(false);
+
+        // make sure that MenuCamera starts as inactive
+        MenuCamera.SetActive(false);
+        doorAnimator.SetTrigger("Open");
+        
+        for(int i = 0; i < 5; i++){
+            Module newModule = Instantiate(possibleModules[Random.Range(0, possibleModules.Count)]);
+            newModule.transform.position = modualSpawners[i].transform.position;
+            newModule.transform.localScale = modualSpawners[i].transform.localScale;
+            newModule.transform.rotation = modualSpawners[i].transform.rotation;
+            newModule.transform.parent = modualSpawners[i].transform;
+            modules.Add(newModule);
+        }
+        timeModule.activited = true;
     }
 }
