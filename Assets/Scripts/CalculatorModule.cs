@@ -18,15 +18,18 @@ public class CalculatorModule : Module
     private int answer = 0;
 
     private void Start() {
-        // 50% chance to get set the original digits from possbileProblems, 50% chance to get a random problem
-        if ((int)Random.Range(0, 8) == 0) {
-            int index = Random.Range(0, possibleProblems.Count);
-            originalDigits = possibleProblems[index];
-        } else {
-            originalDigits.x = (int)Random.Range(0, 10);
-            originalDigits.y = (int)Random.Range(0, 10);
-            originalDigits.z = (int)Random.Range(0, 10);
-        }
+        // // 50% chance to get set the original digits from possbileProblems, 50% chance to get a random problem
+        // if ((int)Random.Range(0, 8) == 0) {
+        //     int index = Random.Range(0, possibleProblems.Count);
+        //     originalDigits = possibleProblems[index];
+        // } else {
+        //     originalDigits.x = (int)Random.Range(0, 10);
+        //     originalDigits.y = (int)Random.Range(0, 10);
+        //     originalDigits.z = (int)Random.Range(0, 10);
+        // }
+        originalDigits.x = 7;
+        originalDigits.y = 2;
+        originalDigits.z = 3;
         setAnswer();
         displayProblem();
         // convert int array into a single number, index 0 being the one's digit
@@ -89,7 +92,7 @@ public class CalculatorModule : Module
             answer = oDigits[0] + oDigits[1] + oDigits[2];
         } else if (oDigits.Count(x => x % 2 == 1) == 2) { // if two odd numbers
             //100 * hundreds
-            answer = oDigits[0] * oDigits[2];
+            answer = 100 * oDigits[2];
         } else if (oDigits.All(x => x % 2 == 1)) { // if all odd numbers
             //ones + tens
             answer = 203;

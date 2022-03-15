@@ -7421,7 +7421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 692423967}
   mouseParticle: {fileID: 5770549835601520278, guid: 70b39a49322aef44b82b40922bd00516, type: 3}
-  useMouse: 1
+  useMouse: 0
 --- !u!4 &814242255
 Transform:
   m_ObjectHideFlags: 0
