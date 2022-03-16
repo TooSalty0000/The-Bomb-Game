@@ -8,10 +8,10 @@ public class WordsSubmit : Interactable
     private WordsModule module;
     private Animator animator;
     private void Start() {
-        animator = transform.parent.GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
     public override void Interact() {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle")) {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Submit Idle")) {
             animator.SetTrigger("Pressed");
             module.submit();
         }

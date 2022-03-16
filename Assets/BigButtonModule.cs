@@ -61,8 +61,18 @@ public class BigButtonModule : Module
                 }
             }
         } else if (symbolId == 2) {
-            if (button.holdTime >= 10) {
-                solved();
+            if (colorId == 0) {
+                if (Mathf.FloorToInt(button.holdTime) == 3) {
+                    solved();
+                }
+            } else if (colorId == 1) {
+                if (Mathf.FloorToInt(button.holdTime) == 5) {
+                    solved();
+                }
+            } else if (colorId == 2) {
+                if (Mathf.FloorToInt(button.holdTime) >= 10) {
+                    solved();
+                }
             }
         } else if (symbolId == 3) {
             if (colorId == 0) {

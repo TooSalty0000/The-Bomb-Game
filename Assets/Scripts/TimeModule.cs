@@ -9,7 +9,7 @@ public class TimeModule : Module
     public TextMeshPro timerText;
     private float speedmultiplyer = 1;
 
-    private int xNumber = 0;
+    public int xNumber = 0;
 
     public GameObject[] x;
     public bool activited = false;
@@ -41,6 +41,13 @@ public class TimeModule : Module
             // Reload scene
            ModuleManager.instance.hasExploded = true;
         }
+
+        for (int i = 0; i < xNumber; i++)
+        {
+            if (i < x.Length) {
+                x[i].GetComponent<TextMeshPro>().color = Color.red;
+            }
+        }
     }
 
     public void addSpeedMultiplyer(float speedmultiplyer){
@@ -49,11 +56,7 @@ public class TimeModule : Module
          //play fail sound
 
         if(xNumber < 2){
-            
-          x[xNumber].GetComponent<TextMeshPro>().color = Color.red;
-
-           xNumber++;
-          
+            xNumber++;
         }
         else 
         {
@@ -66,14 +69,13 @@ public class TimeModule : Module
     }
     
     public void startTimer() {
-        
-        StartCoroutine(WaitForSound());
         activited = true;
+        StartCoroutine(WaitForSound());
     }
 
     private IEnumerator WaitForSound()
     {
-        while (timer > 0) {
+        while (timer > 0 && activited) {
             yield return new WaitForSeconds(1 / speedmultiplyer);
             audioSource.Play();
         }

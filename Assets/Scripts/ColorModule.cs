@@ -49,20 +49,6 @@ public class ColorModule : Module
             code[i] = Colors[UnityEngine.Random.Range(0, Colors.Length)];
         }
 
-        // set answer based on these rules:
-//         First Color:
-//          If Red: Press the third color
-//          If Blue: Press the second color
-//          If Green or Yellow: Press the fourth color
-//         Second Color:
-//          If Red or Blue: Press the first color
-//          If Green or Yellow: Press the fourth color
-//         Third Color: 
-//          Press the third color
-//         Fourth Color:
-//          If Red: Press Blue
-//          If Green: Press Red
-//          If Blue or Yellow: Press Yellow
         if (code[0] == Color.red)
         {
             answer[0] = code[2];
@@ -102,6 +88,10 @@ public class ColorModule : Module
             return true;
         }
         fail();
+        enteredCode = new Color[4];
+        for (int i = 0; i < 4; i++) {
+            answerLights[i].material.color = enteredCode[i];
+        }
         return false;
     }
 

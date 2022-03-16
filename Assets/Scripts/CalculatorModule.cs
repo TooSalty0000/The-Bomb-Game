@@ -18,18 +18,15 @@ public class CalculatorModule : Module
     private int answer = 0;
 
     private void Start() {
-        // // 50% chance to get set the original digits from possbileProblems, 50% chance to get a random problem
-        // if ((int)Random.Range(0, 8) == 0) {
-        //     int index = Random.Range(0, possibleProblems.Count);
-        //     originalDigits = possibleProblems[index];
-        // } else {
-        //     originalDigits.x = (int)Random.Range(0, 10);
-        //     originalDigits.y = (int)Random.Range(0, 10);
-        //     originalDigits.z = (int)Random.Range(0, 10);
-        // }
-        originalDigits.x = 7;
-        originalDigits.y = 2;
-        originalDigits.z = 3;
+        // 50% chance to get set the original digits from possbileProblems, 50% chance to get a random problem
+        if ((int)Random.Range(0, 8) == 0) {
+            int index = Random.Range(0, possibleProblems.Count);
+            originalDigits = possibleProblems[index];
+        } else {
+            originalDigits.x = (int)Random.Range(0, 10);
+            originalDigits.y = (int)Random.Range(0, 10);
+            originalDigits.z = (int)Random.Range(0, 10);
+        }
         setAnswer();
         displayProblem();
         // convert int array into a single number, index 0 being the one's digit

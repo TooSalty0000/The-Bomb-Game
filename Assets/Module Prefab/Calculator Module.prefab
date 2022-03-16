@@ -1266,6 +1266,10 @@ MonoBehaviour:
   - {x: 3, y: 0, z: 3}
   - {x: 0, y: 7, z: 0}
   - {x: 1, y: 0, z: 2}
+  - {x: 5, y: 5, z: 0}
+  - {x: 2, y: 3, z: 5}
+  - {x: 5, y: 9, z: 9}
+  - {x: 2, y: 6, z: 1}
 --- !u!1 &4683311036836367148
 GameObject:
   m_ObjectHideFlags: 0

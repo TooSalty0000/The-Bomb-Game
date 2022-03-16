@@ -8,10 +8,14 @@ public class WordsModule : Module
     private int level = 1;
     [SerializeField]
     private TextMeshPro valueText;
+    [SerializeField]
     private TextMeshPro problemText;
+    [SerializeField]
     private string[] words = new string[] {
-        "BOMB", "CUT", "CHEM", "TEMP", "WIRE", "EXPLODE", "DROP", "COLOR"
+        "BOMB", "CUT", "CHEM", "TEMP", "WIRE", "EXPLODE", "DROP", "COLOR", "AMONGUS", "BUTTON"
     };
+
+    private int savedNumber;
 
     private string currentWord;
     private int answerValue;
@@ -30,36 +34,42 @@ public class WordsModule : Module
     }
 
     void setAnswerValue() {
+        randomIndex = Random.Range(0, words.Length);
+        problemText.text = words[randomIndex];
         switch(level){
             case 1:
-                randomIndex = Random.Range(0, words.Length);
                 answerValue = randomIndex;
                 break;
             case 2:
                 answerValue = words[randomIndex].Length - 3;
                 break;
             case 3:
-                if(randomIndex == 2 || randomIndex == 7 || randomIndex == 3 || randomIndex == 4){
-                    answerValue = randomIndex;
-                }else if(randomIndex == 1 || randomIndex == 6 || randomIndex == 5){
-                    answerValue = 3;
-                }else if(randomIndex == 0){
-                    answerValue = 9;
-                }
+                answerValue = (words[randomIndex].Length + savedNumber) % 10;
                 break;
         }
     }
 
     void checkAnswer() {
         if (answerValue == value) {
-            if (level < 2) {
+            if (level < 3) {
+                savedNumber += answerValue;
                 level++;
+                setAnswerValue();
             } else {
                 solved();
             }
         } else {
             fail();
         }
+    }
+
+    public void pressed(string direction) {
+        if (direction == "Up" && value < 9) {
+            value++;
+        } else if (direction == "Down" && value > 0) {
+            value--;
+        }
+        valueText.text = value.ToString();
     }
 
 }

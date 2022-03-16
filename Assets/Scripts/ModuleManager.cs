@@ -15,7 +15,6 @@ public class ModuleManager : MonoBehaviour
 
     public int modulesSolved = 0;
 
-    public TextMeshProUGUI winText; 
     
     [SerializeField]
     private GameObject Menu;
@@ -33,30 +32,32 @@ public class ModuleManager : MonoBehaviour
     private List<Module> possibleModules = new List<Module>();
 
     public GameObject[] modualSpawners;
-    public float timeLimit = 180;
+    [SerializeField]
+    private float[] timeLimit = new float[] {3 * 60, 5 * 60, 4 * 60};
    
     public TimeModule timeModule;
 
     public GameObject MenuCamera;
 
     public bool YouWin = false;
-
-    AudioSource audioSource;
+    
+    [SerializeField]
+    AudioSource explode;
+    [SerializeField]
+    AudioSource doorClosing;
 
     // Start is called before the first frame update
     void Start()
     {
-      audioSource = GetComponent<AudioSource>();
     }
 
+    private bool animated = false;
     // Update is called once per frame
     void Update()
     {   
-        if(modulesSolved >= 5 || YouWin == true){
-
-           MenuCamera.gameObject.SetActive(true);
-
-           winText.text = "You Defused The Bomb!";
+        if(modulesSolved >= 5 && !animated){
+           StartCoroutine(victory());
+           animated = true;
         }
 
         if(hasExploded == true){
@@ -74,30 +75,53 @@ public class ModuleManager : MonoBehaviour
         }
         ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
         ps.Play();
-        audioSource.Play();
+        explode.Play();
         doorAnimator.SetTrigger("Close");
-        yield return new WaitForSeconds(2);
+        doorClosing.Play();
+        yield return new WaitForSeconds(5);
         SceneManager.LoadScene(0);
     }
 
-    public void startGame() {
-        winText.text = "";
+    IEnumerator victory () {
+        timeModule.activited = false;
+        MenuCamera.SetActive(true);
+        yield return new WaitForSeconds(2);
+        doorAnimator.SetTrigger("Close");
+        doorClosing.Play();
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(0);
+    }
 
-        timeModule.timer = timeLimit;
+    public void startGame(int level) {
+
         Menu.SetActive(false);
 
-        // make sure that MenuCamera starts as inactive
-        MenuCamera.SetActive(false);
-        doorAnimator.SetTrigger("Open");
-        
         for(int i = 0; i < 5; i++){
-            Module newModule = Instantiate(possibleModules[Random.Range(0, possibleModules.Count)]);
+            Module newModule;
+            if (level == 0) {
+                newModule = Instantiate(possibleModules[Random.Range(0, 5)]);
+            } else {
+                if (i < 3) {
+                    newModule = Instantiate(possibleModules[Random.Range(0, 5)]);
+                } else {
+                    newModule = Instantiate(possibleModules[Random.Range(5, 8)]);
+                }
+            }  
             newModule.transform.position = modualSpawners[i].transform.position;
             newModule.transform.localScale = modualSpawners[i].transform.localScale;
             newModule.transform.rotation = modualSpawners[i].transform.rotation;
             newModule.transform.parent = modualSpawners[i].transform;
             modules.Add(newModule);
         }
+
+        timeModule.timer = timeLimit[level];
+        if (level == 2) {
+            timeModule.xNumber = 1;
+        }
+
+        // make sure that MenuCamera starts as inactive
+        MenuCamera.SetActive(false);
+        doorAnimator.SetTrigger("Open");
         timeModule.startTimer();
     }
 }

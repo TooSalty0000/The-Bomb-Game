@@ -16,7 +16,7 @@ public class BigButton : Interactable
     }
 
     private void Update() {
-        text.text = holdTime.ToString("0");
+        text.text = Mathf.FloorToInt(holdTime).ToString("0");
     }
     public override void Interact() {
         animator.SetBool("Pressed", true);

@@ -20,7 +20,9 @@ public class Module : MonoBehaviour
     }
 
     public void fail () {
-        ModuleManager.instance.timeModule.addSpeedMultiplyer(0.5f);
+        if (!isSolved) {
+            ModuleManager.instance.timeModule.addSpeedMultiplyer(0.5f);
+        }
     }
 
 }

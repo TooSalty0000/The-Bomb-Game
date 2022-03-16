@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 9096875523132154234}
   - component: {fileID: 5859785063660894346}
   m_Layer: 0
-  m_Name: Chemical Name
+  m_Name: Problem Word
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -706,6 +706,16 @@ MonoBehaviour:
   Identifier: {fileID: 448863616982488230}
   isSolved: 0
   valueText: {fileID: 8804249104178722474}
+  problemText: {fileID: 5859785063660894346}
+  words:
+  - BOMB
+  - CUT
+  - CHEM
+  - TEMP
+  - WIRE
+  - EXPLODE
+  - DROP
+  - COLOR
 --- !u!1 &5337129330457755095
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +816,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ad4a2554dc568624b952341d6cf51e04, type: 2}
   m_sharedMaterial: {fileID: -8942685899898513947, guid: ad4a2554dc568624b952341d6cf51e04, type: 2}
@@ -1064,7 +1074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c13c4a3bf173364298ab405109200c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  module: {fileID: 0}
+  module: {fileID: 7077913984668819699}
 --- !u!1 &6650372486882147565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,7 +1088,7 @@ GameObject:
   - component: {fileID: 6765521057729152135}
   - component: {fileID: 8534847776854805947}
   m_Layer: 0
-  m_Name: Chemical Label
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1174,7 +1184,6 @@ GameObject:
   - component: {fileID: 420156205586137703}
   - component: {fileID: 633591826752635716}
   - component: {fileID: 8526662504505843336}
-  - component: {fileID: 962111788931245753}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -1260,19 +1269,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &962111788931245753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7272780065466794323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0355a7155f2eb8f41a9fc53e33f971a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  module: {fileID: 0}
 --- !u!1 &7641136917991907576
 GameObject:
   m_ObjectHideFlags: 0
