@@ -80,11 +80,11 @@ public class BigButtonModule : Module
                     solved();
                 }
             } else if (colorId == 1) {
-                if (button.holdTime >= 3) {
+                if (Mathf.FloorToInt(button.holdTime) == ModuleManager.instance.modules.Count(x => x.GetComponent<BigButtonModule>())) {
                     solved();
                 }
             } else if (colorId == 2) {
-                if (button.holdTime >= 5) {
+                if (Mathf.FloorToInt(button.holdTime) == ModuleManager.instance.modules.Count(x => !x.GetComponent<BigButtonModule>())) {
                     solved();
                 }
             }
