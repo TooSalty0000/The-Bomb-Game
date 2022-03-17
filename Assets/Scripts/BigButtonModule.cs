@@ -32,7 +32,7 @@ public class BigButtonModule : Module
 
     public void checkAnswer() {
         if (symbolId == 0) {
-            float currentSeconds = ModuleManager.instance.timeModule.timer % 60;
+            int currentSeconds = Mathf.FloorToInt( ModuleManager.instance.timeModule.timer % 60);
             if (colorId == 0) {
                 if (currentSeconds < 30) {
                     solved();

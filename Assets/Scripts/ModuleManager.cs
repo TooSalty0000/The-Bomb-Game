@@ -33,7 +33,7 @@ public class ModuleManager : MonoBehaviour
 
     public GameObject[] modualSpawners;
     [SerializeField]
-    private float[] timeLimit = new float[] {3 * 60, 5 * 60, 4 * 60};
+    private float[] timeLimit = new float[] {5 * 60, 5 * 60, 4 * 60};
    
     public TimeModule timeModule;
 
@@ -99,12 +99,12 @@ public class ModuleManager : MonoBehaviour
         for(int i = 0; i < 5; i++){
             Module newModule;
             if (level == 0) {
-                newModule = Instantiate(possibleModules[Random.Range(0, 5)]);
+                newModule = Instantiate(possibleModules[Random.Range(0, 4)]);
             } else {
                 if (i < 3) {
                     newModule = Instantiate(possibleModules[Random.Range(0, 5)]);
                 } else {
-                    newModule = Instantiate(possibleModules[Random.Range(5, 8)]);
+                    newModule = Instantiate(possibleModules[Random.Range(5, 9)]);
                 }
             }  
             newModule.transform.position = modualSpawners[i].transform.position;

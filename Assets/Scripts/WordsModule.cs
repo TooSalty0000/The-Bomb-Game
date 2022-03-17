@@ -60,6 +60,7 @@ public class WordsModule : Module
             }
         } else {
             fail();
+            level = 1;
         }
     }
 

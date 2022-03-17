@@ -60,6 +60,7 @@ public class WireModule : Module
             cutCount++;
         } else {
             fail();
+           
         }
     }
 

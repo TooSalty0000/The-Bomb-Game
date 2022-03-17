@@ -15,7 +15,7 @@ public class Module : MonoBehaviour
         enabled = false;
 
         ModuleManager.instance.modulesSolved++;
-
+        Debug.Log("Solved: " + ModuleManager.instance.modulesSolved);
         
     }
 
