@@ -37,9 +37,11 @@ public class TimeModule : Module
         }
         //display time as minutes:seconds and store it in timerText
         timerText.text = Mathf.Floor(timer / 60).ToString("00") + ":" + Mathf.Floor(timer % 60).ToString("00");
-        if(timer <= 0){
+
+        if(timer <= 0 || xNumber > 2) {
             // Reload scene
            ModuleManager.instance.hasExploded = true;
+           enabled = false;
         }
 
         for (int i = 0; i < xNumber; i++)
@@ -52,19 +54,7 @@ public class TimeModule : Module
 
     public void addSpeedMultiplyer(float speedmultiplyer){
         this.speedmultiplyer += speedmultiplyer;
-         
-         //play fail sound
-
-        if(xNumber < 2){
-            xNumber++;
-        }
-        else 
-        {
-            ModuleManager.instance.hasExploded = true;
-           
-        }
-
-       
+        xNumber++;       
         
     }
     

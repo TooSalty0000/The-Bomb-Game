@@ -84,9 +84,12 @@ while True:
     # pTime = cTime
     # cv2.putText(img,str(int(fps), (10,70), cv2.FONT_HERSHEY_PLAIN, 3, (255,0,255), 3)
     # cv2.imshow("Image", img)
+    try:
+        sendString = str(palm[0]) + ", " + str(palm[1]) + ", " + str(int((thumb[0] - mf[0]) ** 2 + (thumb[1] - mf[1]) ** 2))
+        sendData(sendString)
+    except:
+        print("No server")
     
-    sendString = str(palm[0]) + ", " + str(palm[1]) + ", " + str(int((thumb[0] - mf[0]) ** 2 + (thumb[1] - mf[1]) ** 2))
-    sendData(sendString)
     
     
     pressedKey = cv2.waitKey(1) & 0xFF;

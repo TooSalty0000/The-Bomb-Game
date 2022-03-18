@@ -58,7 +58,7 @@ public class WireModule : Module
             wires[index].enabled = false;
             values[index] = -1;
             cutCount++;
-        } else {
+        } else if (values[index] != -1){
             fail();
            
         }

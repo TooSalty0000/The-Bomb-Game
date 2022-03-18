@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -13,7 +14,6 @@ public class ModuleManager : MonoBehaviour
     private ParticleSystem explosionPrefab;
     public bool hasExploded = false;
 
-    public int modulesSolved = 0;
 
     
     [SerializeField]
@@ -27,7 +27,7 @@ public class ModuleManager : MonoBehaviour
             Destroy(this);
         }
     }
-    public List<Module> modules = new List<Module>();
+    public Module[] modules = new Module[0];
     [SerializeField]
     private List<Module> possibleModules = new List<Module>();
 
@@ -47,15 +47,12 @@ public class ModuleManager : MonoBehaviour
     AudioSource doorClosing;
 
     // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     private bool animated = false;
     // Update is called once per frame
     void Update()
     {   
-        if(modulesSolved >= 5 && !animated){
+        if(modules.Count(x => x.isSolved) >= 5 && !animated){
            StartCoroutine(victory());
            animated = true;
         }
@@ -94,6 +91,7 @@ public class ModuleManager : MonoBehaviour
 
     public void startGame(int level) {
 
+        modules = new Module[5];
         Menu.SetActive(false);
 
         for(int i = 0; i < 5; i++){
@@ -111,7 +109,7 @@ public class ModuleManager : MonoBehaviour
             newModule.transform.localScale = modualSpawners[i].transform.localScale;
             newModule.transform.rotation = modualSpawners[i].transform.rotation;
             newModule.transform.parent = modualSpawners[i].transform;
-            modules.Add(newModule);
+            modules[i] = newModule;
         }
 
         timeModule.timer = timeLimit[level];

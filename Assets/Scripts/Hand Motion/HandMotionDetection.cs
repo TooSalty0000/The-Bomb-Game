@@ -10,7 +10,7 @@ using UnityEngine;
 public class HandMotionDetection : MonoBehaviour
 {
     static Socket listener;
-    private CancellationTokenSource source;
+    public CancellationTokenSource source;
     public ManualResetEvent allDone;
     private Color matColor;
     private Vector3 newPosition;
@@ -34,6 +34,11 @@ public class HandMotionDetection : MonoBehaviour
         // Debug.Log(Application.dataPath);
         // System.Diagnostics.Process.Start((Application.dataPath) + "/mysocket.py");
         // objectRenderer = GetComponent<Renderer>();   
+        if (listener != null)
+        {
+            listener.Close();
+        }
+        // DontDestroyOnLoad(gameObject);
         await Task.Run(() => ListenEvents(source.Token));
     }
 
@@ -144,5 +149,11 @@ public class HandMotionDetection : MonoBehaviour
         public const int BufferSize = 1024;
         public byte[] buffer = new byte[BufferSize];
         public StringBuilder colorCode = new StringBuilder();
+    }
+
+
+    public void OnApplicationQuit()
+    {
+        listener.Close();
     }
 }

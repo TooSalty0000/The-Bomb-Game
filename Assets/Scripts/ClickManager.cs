@@ -1,9 +1,12 @@
 using UnityEngine;
+using TMPro;
 
 public class ClickManager : MonoBehaviour
 {
     [SerializeField]
     public Camera camera;
+    [SerializeField]
+    public TextMeshProUGUI text;
 
     private Interactable currentInteractable;
 
@@ -18,6 +21,7 @@ public class ClickManager : MonoBehaviour
     void Start()
     {
         handMotion = GetComponent<HandMotionDetection>();
+        ChangeUseMouse();
     }
 
     // Update is called once per frame
@@ -56,5 +60,17 @@ public class ClickManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ChangeUseMouse() {
+        useMouse = !useMouse;
+        if (useMouse) {
+            text.text = "Mouse";
+        } else {
+            text.text = "Hand";
+        }
+    }
+    public void quitApp() {
+        Application.Quit();
     }
 }

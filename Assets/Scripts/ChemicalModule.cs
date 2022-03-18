@@ -57,6 +57,7 @@ public class ChemicalModule : Module
             solved();
         } else {
             fail();
+            pressCount = 0;
         }
     }
 }

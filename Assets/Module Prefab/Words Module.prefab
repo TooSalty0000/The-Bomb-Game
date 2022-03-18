@@ -711,7 +711,7 @@ MonoBehaviour:
   - BOMB
   - CUT
   - CHEM
-  - TEMP
+  - GRID
   - WIRE
   - EXPLODE
   - DROP

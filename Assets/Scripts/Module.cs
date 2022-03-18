@@ -13,10 +13,7 @@ public class Module : MonoBehaviour
         Identifier.material.SetColor("_EmissionColor", Color.green);
         isSolved = true;
         enabled = false;
-
-        ModuleManager.instance.modulesSolved++;
-        Debug.Log("Solved: " + ModuleManager.instance.modulesSolved);
-        
+       
     }
 
     public void fail () {

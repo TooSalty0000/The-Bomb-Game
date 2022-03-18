@@ -12,7 +12,7 @@ public class WordsModule : Module
     private TextMeshPro problemText;
     [SerializeField]
     private string[] words = new string[] {
-        "BOMB", "CUT", "CHEM", "TEMP", "WIRE", "EXPLODE", "DROP", "COLOR", "AMONGUS", "BUTTON"
+        "BOMB", "CUT", "CHEM", "GRID", "WIRE", "EXPLODE", "DROP", "COLOR", "AMONGUS", "BUTTON"
     };
 
     private int savedNumber;
@@ -60,7 +60,6 @@ public class WordsModule : Module
             }
         } else {
             fail();
-            level = 1;
         }
     }
 

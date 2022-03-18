@@ -57,7 +57,9 @@ public class AmongUsModule : Module
     }
 
     public void pressed(int num) {
-        if (colorOrder.Max() == colorOrder[num] && Mathf.Abs(spinners[num].localRotation.eulerAngles.z - 45) < 10) {
+        Debug.Log("pressed " + Mathf.Abs(spinners[num].localRotation.eulerAngles.z - 45));
+        Debug.Log(colorOrder[num]);
+        if (colorOrder.Max() == colorOrder[num] && Mathf.Abs(spinners[num].localRotation.eulerAngles.z - 45) < 20) {
             isSpinning[num] = false;
             colorOrder[num] = -1;
         } else {
