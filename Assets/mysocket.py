@@ -46,7 +46,7 @@ while True:
     img = cv2.flip(img, 1)
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = hands.process(imgRGB)
-    #print(results.multi_hand_landmarks)
+    # print(results.multi_hand_landmarks)
     if results.multi_hand_landmarks:
         for handLms in results.multi_hand_landmarks:
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
@@ -83,9 +83,10 @@ while True:
     # fps = 1/(cTime-pTime)
     # pTime = cTime
     # cv2.putText(img,str(int(fps), (10,70), cv2.FONT_HERSHEY_PLAIN, 3, (255,0,255), 3)
-    # cv2.imshow("Image", img)
+    cv2.imshow("Image", img)
     try:
         sendString = str(palm[0]) + ", " + str(palm[1]) + ", " + str(int((thumb[0] - mf[0]) ** 2 + (thumb[1] - mf[1]) ** 2))
+        # print(int((thumb[0] - mf[0]) ** 2 + (thumb[1] - mf[1]) ** 2))
         sendData(sendString)
     except:
         print("No server")

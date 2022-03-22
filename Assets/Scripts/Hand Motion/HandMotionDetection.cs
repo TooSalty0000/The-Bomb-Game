@@ -130,7 +130,7 @@ public class HandMotionDetection : MonoBehaviour
     private void positionCube(string content) {
         string[] data = content.Split(',');
         Vector2 screenPosition = new Vector2(float.Parse(data[0]) * 1920/1280, 1080-(float.Parse(data[1]) * 1080 / 720));
-        if (int.Parse(data[2]) < 500) {
+        if (int.Parse(data[2]) < 300) {
             pressed = true;
         } else {
             pressed = false;
