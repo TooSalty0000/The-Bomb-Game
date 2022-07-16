@@ -19,9 +19,11 @@ public class ClickManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        handMotion = GetComponent<HandMotionDetection>();
-        ChangeUseMouse();
+    {   
+        if (text) {
+            ChangeUseMouse();
+            handMotion = GetComponent<HandMotionDetection>();
+        }
     }
 
     // Update is called once per frame
